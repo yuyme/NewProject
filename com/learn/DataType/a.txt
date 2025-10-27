@@ -1,0 +1,54 @@
+• 这段代码主要问题在于两处：
+
+  1. r.nextInt(1, 10) 不合法（针对部分 JDK 版本）
+      - 如果你使用的是 Java 8 或更早版本，Random.nextInt(int origin, int bound) 这种双参数形式不存在，只有 nextInt(int bound)。
+      - 解决方式：改为
+
+        int num = r.nextInt(10) + 1;
+        这样生成的随机数范围是 1 到 10。
+  2. flag 没有重新初始化
+      - 当发现重复数字时设置 flag = false，但在下次循环开始时未重置为 true，导致之后即使生成的新数字不重复也不会被添加。
+      - 可以在 for (int i = 0; i < 10; i++) 的循环内，每次开始时重置 flag：
+
+        for (int i = 0; i < 10; i++) {
+            flag = true;
+            int num = r.nextInt(10) + 1;
+            ...
+        }
+
+  总结修改版：
+
+  package com.learn.DataType;
+
+  import java.util.Random;
+
+  public class randomDemo {
+      public static void main(String[] args) {
+          Random r = new Random();
+          int[] arr = new int[10];
+          boolean flag;
+
+          getRnd:
+          for (int i = 0; i < 10; i++) {
+              flag = true;
+              int num = r.nextInt(10) + 1;
+              for (int j = 0; j < i; j++) {
+                  if (num == arr[j]) {
+                      flag = false;
+                      i--;
+                      continue getRnd;
+                  }
+              }
+              if (flag) arr[i] = num;
+          }
+
+          System.out.print("[");
+          for (int n : arr) {
+              if (n == arr[arr.length - 1]) System.out.print(n);
+              else System.out.print(n + ", ");
+          }
+          System.out.print("]");
+      }
+  }
+
+  这样修改后可以正常运行并生成不重复的随机数数组

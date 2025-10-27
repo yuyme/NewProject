@@ -10,9 +10,9 @@ public class randomDemo {
 
         getRnd:
         for (int i = 0; i < 10; i++) {
-            int num = r.nextInt(1, 100) + 1;
+            int num = r.nextInt(1, 10) + 1;
             for (int j = 0; j < i; j++) {
-                if (num == arr[i]) {
+                if (num == arr[j]) {
                     flag = false;
                     i--;
                     continue getRnd;
