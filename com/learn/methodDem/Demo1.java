@@ -83,11 +83,25 @@ public class Demo1 {
         return sum;
     }
 
+    // 方法的介绍
+    private static void method(int a){
+        System.out.println(a);
+    }
 
-
+    private static void method1(int a, int b){
+        System.out.println(a + b);
+    }
 
     public static void main(String[] args) {
-        // 创建键盘录取对象
+        // 计算1+2 1+3 5+2 6+4 8+2 的值并打印
+        method1(1,2);
+        method1(1,3);
+        method1(5,2);
+        method1(6,4);
+        method1(8,2);
+
+        // 结果：
+        /*// 创建键盘录取对象
         Scanner sc = new Scanner(System.in);
 
         //拿到评分数组
@@ -110,7 +124,7 @@ public class Demo1 {
         System.out.println("平均分为：" + avg);
 
         // 输出评分
-        show(scores);
+        show(scores);*/
 
     }
 }
