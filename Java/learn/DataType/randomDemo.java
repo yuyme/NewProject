@@ -1,4 +1,4 @@
-package com.learn.DataType;
+package learn.DataType;
 
 import java.util.Random;
 

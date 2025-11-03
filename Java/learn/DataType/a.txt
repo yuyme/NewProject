@@ -18,7 +18,7 @@
 
   总结修改版：
 
-  package com.learn.DataType;
+  package Java.learn.DataType;
 
   import java.util.Random;
 

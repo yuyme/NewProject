@@ -1,4 +1,4 @@
-package com.learn.methodDem;
+package learn.methodDem;
 
 public class pointer {
     /*
