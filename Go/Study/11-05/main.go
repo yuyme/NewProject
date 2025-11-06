@@ -42,4 +42,10 @@ func main() {
 		fmt.Println("较差 不及格")
 	}
 
+	count := 0
+	for count >= 0 {
+		fmt.Println("hello go")
+		count++
+	}
+
 }
